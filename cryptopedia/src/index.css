@@ -61,12 +61,10 @@ a {
 }
 
 .coinRow {
-  background-color: #16171a;
   font-family: "Montserrat";
   cursor: pointer;
 }
 .coinRow:hover {
-  background-color: #131111;
   transition: 0.15s ease-in-out;
 }
 .coinFullname {

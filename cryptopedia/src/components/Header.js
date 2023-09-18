@@ -8,9 +8,11 @@ import {
   Typography,
   Select,
   MenuItem,
+  IconButton,
   ThemeProvider,
 } from "@mui/material";
 import CryptoContext from "../context/CryptoContext";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
@@ -20,7 +22,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
   fontFamily: "Montserrat",
 }));
 
-const Header = () => {
+const Header = ({ handleClick }) => {
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -58,6 +60,10 @@ const Header = () => {
               </MenuItem>
               <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
+            <IconButton color="inherent" onClick={handleClick}>
+              {" "}
+              {theme.palette.mode === "dark" ? <MdDarkMode /> : <MdLightMode />}
+            </IconButton>
           </Toolbar>
         </Container>
       </AppBar>

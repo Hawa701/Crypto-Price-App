@@ -119,6 +119,13 @@ const CoinsTable = () => {
                             onClick={() => navigate(`/coins/${row.id}`)}
                             className="coinRow"
                             key={row.name}
+                            sx={{
+                              backgroundColor:
+                                theme.palette.background.secondary,
+                              "&:hover": {
+                                backgroundColor: theme.palette.background.hover,
+                              },
+                            }}
                           >
                             <TableCell
                               component="th"

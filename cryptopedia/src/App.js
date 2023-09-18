@@ -18,6 +18,8 @@ const lightTheme = createTheme({
     },
     background: {
       default: "#FFFFFF",
+      secondary: "#f1f1f1",
+      hover: "#d9d9d9",
     },
     text: {
       primary: "#000000",
@@ -36,6 +38,8 @@ const darkTheme = createTheme({
     },
     background: {
       default: "#14161A",
+      secondary: "#16171A",
+      hover: "#131111",
     },
     text: {
       primary: "#FFFFFF",
@@ -46,10 +50,14 @@ const darkTheme = createTheme({
 function App() {
   const [themeMode, setThemeMode] = useState("dark");
 
+  const handleClick = () => {
+    themeMode === "dark" ? setThemeMode("light") : setThemeMode("dark");
+  };
+
   return (
     <ThemeProvider theme={themeMode === "light" ? lightTheme : darkTheme}>
       <div className="app">
-        <Header />
+        <Header handleClick={handleClick} />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/coins/:id" element={<CoinPage />} />
