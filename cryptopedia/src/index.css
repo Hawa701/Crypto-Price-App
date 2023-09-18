@@ -14,6 +14,12 @@ a {
 }
 
 /* ----------------------- Styles ----------------------- */
+.homePage {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 .banner {
   background-image: url("../public/banner2.jpg");
 }
@@ -52,4 +58,25 @@ a {
 .carousel .coinPrice {
   font-size: 22px;
   font-weight: 500;
+}
+
+.coinRow {
+  background-color: #16171a;
+  font-family: "Montserrat";
+  cursor: pointer;
+}
+.coinRow:hover {
+  background-color: #131111;
+  transition: 0.15s ease-in-out;
+}
+.coinFullname {
+  display: flex;
+  flex-direction: column;
+}
+.coinFullname .symbol {
+  text-transform: uppercase;
+  font-size: 22px;
+}
+.coinFullname .coinName {
+  color: darkgray;
 }

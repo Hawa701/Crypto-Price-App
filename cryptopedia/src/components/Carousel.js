@@ -6,7 +6,7 @@ import CryptoContext from "../context/CryptoContext";
 import { TrendingCoins } from "../config/api";
 import AliceCarousel from "react-alice-carousel";
 
-const numberWithCommas = (number) => {
+export const numberWithCommas = (number) => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
