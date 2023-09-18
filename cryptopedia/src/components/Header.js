@@ -24,11 +24,16 @@ const Header = () => {
   const theme = useTheme();
   const navigate = useNavigate();
 
-  const { currency, setCurrency, symbol } = useContext(CryptoContext);
+  const { currency, setCurrency } = useContext(CryptoContext);
 
   return (
     <ThemeProvider theme={theme}>
-      <AppBar color="transparent" position="static">
+      <AppBar
+        sx={{
+          backgroundColor: theme.palette.background.default,
+        }}
+        position="static"
+      >
         <Container>
           <Toolbar>
             <StyledTypography
@@ -45,7 +50,7 @@ const Header = () => {
                 width: 100,
                 height: 40,
                 marginRight: 15,
-                color: "white",
+                color: theme.palette.text.primary,
               }}
             >
               <MenuItem selected value={"USD"}>
