@@ -56,7 +56,7 @@ const Header = () => {
               <MenuItem selected value={"USD"}>
                 USD
               </MenuItem>
-              <MenuItem value={"ETB"}>ETB</MenuItem>
+              <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
           </Toolbar>
         </Container>
