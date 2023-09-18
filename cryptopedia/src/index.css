@@ -80,3 +80,14 @@ a {
 .coinFullname .coinName {
   color: darkgray;
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+.pagination .MuiPaginationItem-root {
+  color: gold;
+}
