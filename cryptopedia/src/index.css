@@ -94,8 +94,73 @@ a {
   color: gold;
 }
 
-/* @media (min-width: 450px) {
-  .mainTitle {
-    font-size: 16px;
+.coinPage {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+.coinPage .coinInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin-top: 25px;
+  border-right: 2px solid gray;
+}
+.coinInfo .marketData {
+  align-self: start;
+  width: 100%;
+  padding: 10px 50px;
+}
+.marketData .rank.name {
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+.marketData .rank.number {
+  font-family: "Montserrat";
+}
+
+.coinChart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  margin-top: 25px;
+  padding: 40px;
+}
+
+/* ----------------------- Responsiveness ----------------------- */
+
+@media (max-width: 900px) {
+  .coinPage {
+    flex-direction: column;
+    align-items: center;
   }
-} */
+  .coinPage .coinInfo {
+    width: 100%;
+  }
+  .coinInfo .marketData {
+    display: flex;
+    justify-content: space-around;
+  }
+  .coinChart {
+    width: 100%;
+    margin-top: 0;
+    padding: 20px;
+    /* padding-top: 0; */
+  }
+}
+
+@media (max-width: 780px) {
+  .coinInfo .marketData {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .coinInfo .marketData {
+    align-items: start;
+  }
+}

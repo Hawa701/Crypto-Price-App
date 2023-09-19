@@ -18,6 +18,7 @@ import {
   LinearProgress,
   Pagination,
   ThemeProvider,
+  CircularProgress,
 } from "@mui/material";
 // import Pagination from "./Pagination";
 
@@ -83,6 +84,7 @@ const CoinsTable = () => {
                 style={{
                   backgroundColor: theme.palette.primary.main,
                 }}
+                thickness={2}
               />
             ) : (
               <>
@@ -174,10 +176,10 @@ const CoinsTable = () => {
               </>
             )}
           </TableContainer>
-          {/* <Pagination handleSearch={handleSearch} /> */}
+
           <Pagination
             className="pagination"
-            count={(handleSearch()?.length / 10).toFixed(0)}
+            count={parseInt((handleSearch()?.length / 10).toFixed(0))}
             onChange={(_, value) => {
               setPage(value);
               window.scroll(0, 455);

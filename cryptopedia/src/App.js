@@ -11,10 +11,7 @@ const lightTheme = createTheme({
     mode: "light",
     primary: {
       main: "#FFD700",
-      dark: "#EEBC1D",
-    },
-    secondary: {
-      main: "#F50057",
+      dark: "#ffcd29",
     },
     background: {
       default: "#FFFFFF",
@@ -32,9 +29,7 @@ const darkTheme = createTheme({
     mode: "dark",
     primary: {
       main: "#FFD700",
-    },
-    secondary: {
-      main: "#F50057",
+      dark: "#ffcd29",
     },
     background: {
       default: "#14161A",
