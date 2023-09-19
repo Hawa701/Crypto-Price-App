@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import CoinPage from "./pages/CoinPage";
 import MissingPage from "./pages/MissingPage";
 import { createTheme, ThemeProvider } from "@mui/material";
+import Footer from "./components/Footer";
 
 const lightTheme = createTheme({
   palette: {
@@ -14,9 +15,10 @@ const lightTheme = createTheme({
       dark: "#ffcd29",
     },
     background: {
-      default: "#FFFFFF",
+      default: "#eee",
       secondary: "#f1f1f1",
       hover: "#d9d9d9",
+      header: "#fff",
     },
     text: {
       primary: "#000000",
@@ -35,6 +37,7 @@ const darkTheme = createTheme({
       default: "#14161A",
       secondary: "#16171A",
       hover: "#131111",
+      header: "#14161A",
     },
     text: {
       primary: "#FFFFFF",
@@ -58,6 +61,7 @@ function App() {
           <Route path="/coins/:id" element={<CoinPage />} />
           <Route path="*" element={<MissingPage />} />
         </Routes>
+        <Footer />
       </div>
     </ThemeProvider>
   );

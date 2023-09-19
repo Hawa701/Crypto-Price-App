@@ -5,6 +5,7 @@ import { useContext } from "react";
 import CryptoContext from "../context/CryptoContext";
 import { TrendingCoins } from "../config/api";
 import AliceCarousel from "react-alice-carousel";
+import { CircularProgress } from "@mui/material";
 
 export const numberWithCommas = (number) => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -13,6 +14,9 @@ export const numberWithCommas = (number) => {
 const Carousel = () => {
   const [trending, setTrending] = useState([]);
   const { currency, symbol } = useContext(CryptoContext);
+  const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const items = trending.map((coin) => {
     let profit = coin.price_change_percentage_24h >= 0;
     return (
@@ -54,26 +58,38 @@ const Carousel = () => {
 
   const fetchTrendingCoins = async () => {
     try {
+      setIsLoading(true);
       const { data } = await axios.get(TrendingCoins(currency));
       setTrending(data);
+      setIsLoading(false);
+      setFetchError(null);
     } catch (err) {
-      console.log(err.message);
+      setFetchError(err.message);
     }
   };
 
   return (
     <div className="carousel">
-      <AliceCarousel
-        mouseTracking
-        infinite
-        autoPlayInterval={1000}
-        animationDuration={1500}
-        disableDotsControls
-        disableButtonsControls
-        responsive={responsive}
-        autoPlay
-        items={items}
-      />
+      {fetchError && (
+        <p className="errorMsg TrendingCoin">Error: {fetchError}</p>
+      )}
+      {!fetchError && isLoading && (
+        <CircularProgress id="progress" size={100} thickness={1} />
+      )}
+
+      {!isLoading && !fetchError && (
+        <AliceCarousel
+          mouseTracking
+          infinite
+          autoPlayInterval={1000}
+          animationDuration={1500}
+          disableDotsControls
+          disableButtonsControls
+          responsive={responsive}
+          autoPlay
+          items={items}
+        />
+      )}
     </div>
   );
 };

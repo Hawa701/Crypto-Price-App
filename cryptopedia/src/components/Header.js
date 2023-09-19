@@ -32,7 +32,7 @@ const Header = ({ handleClick }) => {
     <ThemeProvider theme={theme}>
       <AppBar
         sx={{
-          backgroundColor: theme.palette.background.default,
+          backgroundColor: theme.palette.background.header,
         }}
         position="static"
       >
