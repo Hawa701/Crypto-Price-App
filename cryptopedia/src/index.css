@@ -78,6 +78,10 @@ a {
 .coinFullname .coinName {
   color: darkgray;
 }
+.marketCap {
+  display: flex;
+  justify-content: center;
+}
 
 .pagination {
   display: flex;
@@ -89,3 +93,9 @@ a {
 .pagination .MuiPaginationItem-root {
   color: gold;
 }
+
+/* @media (min-width: 450px) {
+  .mainTitle {
+    font-size: 16px;
+  }
+} */
