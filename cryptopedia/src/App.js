@@ -16,8 +16,8 @@ const lightTheme = createTheme({
     },
     background: {
       default: "#eee",
-      secondary: "#f1f1f1",
-      hover: "#d9d9d9",
+      secondary: "#e1e1e1",
+      hover: "#c9c9c9",
       header: "#fff",
     },
     text: {

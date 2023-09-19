@@ -76,7 +76,7 @@ a {
   font-size: 22px;
 }
 .coinFullname .coinName {
-  color: darkgray;
+  color: #646464;
 }
 .marketCap {
   display: flex;
@@ -148,6 +148,18 @@ a {
 }
 .buttonContainer .btn:hover {
   background-color: gold;
+}
+
+.missingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100%;
+}
+.missingPage p {
+  margin: 7px 0 30px 0;
 }
 
 footer {
