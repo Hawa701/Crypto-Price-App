@@ -129,7 +129,26 @@ a {
   margin-top: 25px;
   padding: 40px;
 }
-
+.coinChart .buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 100%;
+}
+.buttonContainer .btn {
+  border: 1px solid gold;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 22%;
+  height: 4rem;
+  font-family: "Montserrat";
+  background-color: transparent;
+}
+.buttonContainer .btn:hover {
+  background-color: gold;
+}
 /* ----------------------- Responsiveness ----------------------- */
 
 @media (max-width: 900px) {
@@ -146,7 +165,7 @@ a {
   }
   .coinChart {
     width: 100%;
-    margin-top: 0;
+    /* margin-top: 0; */
     padding: 20px;
     /* padding-top: 0; */
   }
