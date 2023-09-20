@@ -6,6 +6,7 @@ import CoinPage from "./pages/CoinPage";
 import MissingPage from "./pages/MissingPage";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Footer from "./components/Footer";
+import Alert from "./components/Alert";
 
 const lightTheme = createTheme({
   palette: {
@@ -63,6 +64,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
+      <Alert />
     </ThemeProvider>
   );
 }

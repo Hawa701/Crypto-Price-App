@@ -10,6 +10,11 @@ export const CryptoProvider = ({ children }) => {
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
+  const [alert, setAlert] = useState({
+    open: false,
+    message: "",
+    type: "success",
+  });
 
   useEffect(() => {
     currency === "USD" ? setSymbol("$") : setSymbol("€");
@@ -36,6 +41,8 @@ export const CryptoProvider = ({ children }) => {
         setCoins,
         isLoading,
         fetchCoins,
+        alert,
+        setAlert,
       }}
     >
       {children}
