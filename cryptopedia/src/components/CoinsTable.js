@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CryptoContext from "../context/CryptoContext";
-import axios from "axios";
-import { CoinList } from "../config/api";
 import { numberWithCommas } from "./Carousel";
 import { useTheme } from "@mui/system";
 import {
@@ -18,34 +16,20 @@ import {
   LinearProgress,
   Pagination,
   ThemeProvider,
-  CircularProgress,
 } from "@mui/material";
-// import Pagination from "./Pagination";
 
 const CoinsTable = () => {
-  const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
 
-  const { currency, symbol } = useContext(CryptoContext);
+  const { currency, symbol, coins, setCoins, isLoading, fetchCoins } =
+    useContext(CryptoContext);
   const navigate = useNavigate();
   const theme = useTheme();
 
   useEffect(() => {
     fetchCoins();
   }, [currency]);
-
-  const fetchCoins = async () => {
-    try {
-      setIsLoading(true);
-      const { data } = await axios.get(CoinList(currency));
-      setCoins(data);
-      setIsLoading(false);
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
 
   const handleSearch = () => {
     return coins.filter((coin) => {
