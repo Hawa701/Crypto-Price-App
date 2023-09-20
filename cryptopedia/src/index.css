@@ -196,7 +196,16 @@ a {
   border-radius: 5px;
   overflow-y: scroll;
   background-color: #808080;
-  /* border: 2px dashed red; */
+}
+.watchList .coinLists {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: gold;
+  color: #000;
 }
 .sidebar .logoutBtn {
   height: 8%;
