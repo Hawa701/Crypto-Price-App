@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import CryptoContext from "../context/CryptoContext";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import AuthModal from "./AuthModal";
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
@@ -45,13 +46,19 @@ const Header = ({ handleClick }) => {
             >
               CryptoPedia
             </StyledTypography>
+
+            <IconButton color="inherent" onClick={handleClick}>
+              {theme.palette.mode === "dark" ? <MdDarkMode /> : <MdLightMode />}
+            </IconButton>
+
             <Select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
               style={{
                 width: 100,
                 height: 40,
-                marginRight: 15,
+                marginRight: 10,
+                marginLeft: 10,
                 color: theme.palette.text.primary,
               }}
             >
@@ -60,10 +67,8 @@ const Header = ({ handleClick }) => {
               </MenuItem>
               <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
-            <IconButton color="inherent" onClick={handleClick}>
-              {" "}
-              {theme.palette.mode === "dark" ? <MdDarkMode /> : <MdLightMode />}
-            </IconButton>
+
+            <AuthModal />
           </Toolbar>
         </Container>
       </AppBar>

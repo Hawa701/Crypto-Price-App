@@ -9,6 +9,7 @@ export const CryptoProvider = ({ children }) => {
   const [symbol, setSymbol] = useState(`&dollar;`);
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     currency === "USD" ? setSymbol("$") : setSymbol("€");
