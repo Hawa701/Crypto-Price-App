@@ -1,12 +1,15 @@
-import { LinearProgress, Typography } from "@mui/material";
+import { Button, LinearProgress, Typography } from "@mui/material";
 import React, { useContext } from "react";
 import CryptoContext from "../context/CryptoContext";
 import parse from "html-react-parser";
 import { numberWithCommas } from "./Carousel";
 import { useTheme } from "@emotion/react";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const CoinInfo = ({ coin }) => {
-  const { symbol, currency } = useContext(CryptoContext);
+  const { symbol, currency, user, watchlist, setAlert } =
+    useContext(CryptoContext);
   const theme = useTheme();
 
   {
@@ -18,6 +21,28 @@ const CoinInfo = ({ coin }) => {
       );
     }
   }
+
+  const inWatchlist = watchlist.includes(coin?.id);
+
+  const addToWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(coinRef, {
+        coins: watchlist ? [...watchlist, coin.id] : [coin.id],
+      });
+      setAlert({
+        open: true,
+        message: `${coin.name} added to watchlist`,
+        type: "success",
+      });
+    } catch (err) {
+      setAlert({
+        open: true,
+        message: err.message,
+        type: "error",
+      });
+    }
+  };
 
   return (
     <aside className="coinInfo">
@@ -89,6 +114,15 @@ const CoinInfo = ({ coin }) => {
             ) + "M"}
           </Typography>
         </span>
+        {user && (
+          <Button
+            variant="contained"
+            onClick={addToWatchlist}
+            style={{ width: "100%", marginTop: 20 }}
+          >
+            {inWatchlist ? "Remove from watchlist" : "Add To Watchlist"}
+          </Button>
+        )}
       </div>
     </aside>
   );

@@ -10,8 +10,9 @@ export const CryptoProvider = ({ children }) => {
   const [currency, setCurrency] = useState("USD");
   const [symbol, setSymbol] = useState(`&dollar;`);
   const [coins, setCoins] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
+  const [watchlist, setWatchlist] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [alert, setAlert] = useState({
     open: false,
     message: "",
@@ -53,6 +54,8 @@ export const CryptoProvider = ({ children }) => {
         setAlert,
         user,
         setUser,
+        watchlist,
+        setWatchlist,
       }}
     >
       {children}

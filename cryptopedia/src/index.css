@@ -241,18 +241,12 @@ footer {
   }
   .coinInfo .marketData {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
   }
   .coinChart {
     width: 100%;
     padding: 20px;
-  }
-}
-
-@media (max-width: 780px) {
-  .coinInfo .marketData {
-    flex-direction: column;
-    align-items: center;
   }
 }
 
