@@ -14,6 +14,7 @@ import {
 import CryptoContext from "../context/CryptoContext";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import AuthModal from "./AuthModal";
+import UserSidebar from "./UserSidebar";
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
@@ -27,7 +28,7 @@ const Header = ({ handleClick }) => {
   const theme = useTheme();
   const navigate = useNavigate();
 
-  const { currency, setCurrency } = useContext(CryptoContext);
+  const { currency, setCurrency, user } = useContext(CryptoContext);
 
   return (
     <ThemeProvider theme={theme}>
@@ -68,7 +69,7 @@ const Header = ({ handleClick }) => {
               <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
 
-            <AuthModal />
+            {user ? <UserSidebar /> : <AuthModal />}
           </Toolbar>
         </Container>
       </AppBar>
